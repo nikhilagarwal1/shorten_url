@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @shortener.url %>
+</p>
+
+<p>
+  <strong>Shorten url:</strong>
+  <%#= @shortener.shorten_url %>
+  <%= link_to "#{request.base_url}/#{@shortener.shorten_url}",  "#{request.base_url}/#{@shortener.shorten_url}", target: "_blank" %>
+</p>
+
+<%= link_to 'Edit', edit_shortener_path(@shortener) %> |
+<%= link_to 'Back', shorteners_path %>
