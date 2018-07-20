@@ -1,24 +1,58 @@
-# README
+The REST API endpoints are:-
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1) Creating a shortened url:-
 
-Things you may want to cover:
+  Request Type :- POST
 
-* Ruby version
+  Endpoint:- /shorteners
 
-* System dependencies
+  Body :- {"shortener": {"url": "google.com" } }
 
-* Configuration
+  Response:-
+    [
+      {
+          "id": 1,
+          "url": "google.com",
+          "shorten_url": "jSdeYz",
+          "created_at": "2018-07-18T13:36:01.665Z",
+          "updated_at": "2018-07-18T13:36:01.665Z",
+          "sanitized_url": "http://google.com"
+      }
+  ]
 
-* Database creation
+2) Fetching list of shortened urls:-
 
-* Database initialization
+Request Type :- GET
 
-* How to run the test suite
+Endpoint:- /shorteners
 
-* Services (job queues, cache servers, search engines, etc.)
+Response:-
+  [
+      {
+          "id": 10,
+          "url": "google.com",
+          "shorten_url": "jSdeYz",
+          "created_at": "2018-07-18T13:36:01.665Z",
+          "updated_at": "2018-07-18T13:36:01.665Z",
+          "sanitized_url": "http://google.com"
+      }
+  ]
 
-* Deployment instructions
 
-* ...
+3) Fetching original url from a shortened url:-
+
+Request Type :- GET
+
+Endpoint:- /shortners/original_url?shorten_url="abcd"
+
+Response:-
+
+  {
+    "original_url": "google.com"
+  }
+
+4) Deleting shortened-urls:-
+
+Request Type :- DELETE
+
+Endpoint:- /shortners/{:id}
